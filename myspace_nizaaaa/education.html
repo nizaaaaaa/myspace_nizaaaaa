@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education – Nurul Aniza</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ===== Global ===== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #3B2F2F;
+            scroll-behavior: smooth;
+            background: #F6F2E9;
+            position: relative;
+        }
+
+        /* ===== Background Overlay ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: url(images/background\ .jpg) center/cover no-repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        a { text-decoration: none; }
+        img { display: block; }
+
+        /* ===== Navigation ===== */
+        nav {
+            width: 100%;
+            background: linear-gradient(90deg, #4A3425, #6B4F38);
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        nav h2 {
+            font-family: 'Playfair Display', serif;
+            color: #F6F2E9;
+            font-size: 26px;
+        }
+        nav a {
+            color: #F6F2E9;
+            margin-left: 25px;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #88B04B;
+            transition: 0.3s;
+        }
+        nav a:hover::after,
+        nav a.active::after { width: 100%; }
+        nav a:hover,
+        nav a.active { color: #DCC6A0; }
+
+        /* ===== Header ===== */
+        .header {
+            text-align: center;
+            padding: 120px 20px 80px;
+            color: #F6F2E9;
+            position: relative;
+            overflow: hidden;
+            background: url(images/background\ header\ education.jpg) center/cover no-repeat;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.25);
+            pointer-events: none;
+        }
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            animation: floatUpDown 3s ease-in-out infinite;
+        }
+        .header p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            color: #F6F2E9;
+        }
+
+        /* ===== Back to Top Button ===== */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #88B04B;
+            color: #fff;
+            border: none;
+            padding: 12px 14px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            z-index: 1000;
+            display: none;
+        }
+        #backToTop:hover { background-color: #4A3425; }
+
+        /* ===== Education Styles ===== */
+        .education-wrapper { max-width: 1200px; margin: 60px auto; padding: 40px 30px; }
+        .edu-intro { text-align: center; margin-bottom: 50px; font-size: 17px; line-height: 1.8; color: #5C4A3F; }
+
+        /* Education Grid */
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .edu-card { background: linear-gradient(145deg, #fff, #FDF6F0); border-radius: 25px; padding: 35px 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); transition: transform 0.35s, box-shadow 0.35s; text-align: center; }
+        .edu-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.18); }
+
+        /* Landscape Images in Cards */
+        .edu-card img,
+        .highlight-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center 55%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .edu-card h3 { font-family: 'Playfair Display', serif; font-size: 25px; margin-bottom: 15px; color: #4A3425; }
+        .edu-card p { font-size: 16px; line-height: 1.8; color: #5C4A3F; }
+
+        /* Highlight Section */
+        .edu-highlight { margin-top: 90px; text-align: center; }
+        .edu-highlight h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 15px; color: #4A3425; }
+        .highlight-intro { max-width: 850px; margin: 0 auto 45px; font-size: 17px; line-height: 1.8; color: #5C4A3F; }
+
+        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .highlight-card { background: linear-gradient(145deg, #EFE6D8, #F7F1E6); padding: 30px 25px; border-radius: 25px; transition: transform 0.35s, background 0.35s; text-align: center; }
+        .highlight-card:hover { transform: translateY(-8px); background: linear-gradient(145deg, #E4D8C5, #F3E6D2); }
+        .highlight-card h4 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; color: #4A3425; }
+        .highlight-card p { font-size: 15.5px; line-height: 1.8; color: #5C4A3F; }
+
+        /* Footer */
+        footer { margin-top: 80px; background: linear-gradient(135deg, #4A3425, #6B4F38); color: #F6F2E9; padding: 30px; text-align: center; font-size: 14px; }
+        footer i { font-style: italic; }
+
+        /* Responsive */
+        @media (max-width: 600px) { .header h1 { font-size: 34px; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>My Digital Journey</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="profile.html">About Me</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html" class="active">Education</a>
+            <a href="internship.html">Internship</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header" data-aos="fade-down">
+        <h1>Education</h1>
+        <p>
+            Education has played a significant role in shaping my mindset, discipline, and
+            passion for learning throughout my academic journey.
+        </p>
+    </section>
+
+    <!-- Education Content -->
+    <div class="education-wrapper">
+        <div class="edu-intro" data-aos="fade-up" data-aos-delay="100">
+            My academic background has provided me with a strong foundation in information
+            management, digital skills, and professional development. Each stage of my education
+            contributed to both my personal and academic growth.
+        </div>
+
+        <div class="edu-grid">
+            <div class="edu-card" data-aos="zoom-in" data-aos-delay="150">
+                <img src="images/me formal 2.jpeg" alt="Diploma Image">
+                <h3>Diploma in Information Management</h3>
+                <p>
+                    I am currently pursuing a Diploma in Information Management at Universiti Teknologi
+                    MARA (UiTM). This programme has exposed me to various aspects of managing information,
+                    records, databases, and digital systems in an organised and professional manner.
+                </p>
+            </div>
+            <div class="edu-card" data-aos="zoom-in" data-aos-delay="250">
+                <img src="images/key academic.jpeg" alt="Subjects Image">
+                <h3>Key Academic Subjects</h3>
+                <p>
+                    Throughout my studies, I have learned subjects such as Web Design and Development,
+                    Records Management, Database Management, Information Systems, and Digital Content
+                    Management, which strengthened both my technical and analytical skills.
+                </p>
+            </div>
+            <div class="edu-card" data-aos="zoom-in" data-aos-delay="350">
+                <img src="images/course work.jpeg" alt="Assignments Image">
+                <h3>Coursework & Assignments</h3>
+                <p>
+                    Academic assignments trained me to conduct research, manage documents, prepare
+                    structured reports, and present information clearly. These tasks improved my
+                    critical thinking and time management skills.
+                </p>
+            </div>
+            <div class="edu-card" data-aos="zoom-in" data-aos-delay="450">
+                <img src="images/presentation.jpeg" alt="Communication Image">
+                <h3>Presentation & Communication</h3>
+                <p>
+                    Group presentations and discussions enhanced my confidence in public speaking,
+                    teamwork, and effective communication, preparing me for professional environments.
+                </p>
+            </div>
+            <div class="edu-card" data-aos="zoom-in" data-aos-delay="550">
+                <img src="images/clubs.jpeg" alt="Extracurricular Image">
+                <h3>Extracurricular Engagement</h3>
+                <p>
+                    I actively participated in student clubs and societies, contributing to events,
+                    workshops, and competitions. These activities developed my leadership, collaboration,
+                    and organisational skills.
+                </p>
+            </div>
+            <div class="edu-card" data-aos="zoom-in" data-aos-delay="650">
+                <img src="images/awards achievements.jpeg" alt="Awards Image">
+                <h3>Awards & Achievements</h3>
+                <p>
+                    I earned recognition through academic awards and participated in competitions such
+                    as digital projects and coding challenges, which strengthened my problem-solving
+                    and creative thinking abilities.
+                </p>
+            </div>
+        </div>
+
+        <!-- Highlight Section -->
+        <div class="edu-highlight">
+            <h2 data-aos="fade-up">Academic Highlights</h2>
+            <p class="highlight-intro" data-aos="fade-up" data-aos-delay="100">
+                Beyond formal learning, my academic journey also involved creative exploration,
+                collaboration, and continuous self-improvement.
+            </p>
+
+            <div class="highlight-grid">
+                <div class="highlight-card" data-aos="flip-left" data-aos-delay="150">
+                    <img src="images/websitespkj.png" alt="Creative Image">
+                    <h4>Creative Projects</h4>
+                    <p>
+                        I participated in digital poster designs, website projects, and creative
+                        assignments that allowed me to combine technical knowledge with creativity.
+                    </p>
+                </div>
+                <div class="highlight-card" data-aos="flip-left" data-aos-delay="250">
+                    <img src="images/Independent learning.jpeg" alt="Learning Image">
+                    <h4>Independent Learning</h4>
+                    <p>
+                        I consistently explored additional learning resources beyond the syllabus to
+                        strengthen my understanding and expand my digital skills.
+                    </p>
+                </div>
+                <div class="highlight-card" data-aos="flip-left" data-aos-delay="350">
+                    <img src="images/academic discipline.jpeg" alt="Discipline Image">
+                    <h4>Academic Discipline</h4>
+                    <p>
+                        Managing multiple assignments and deadlines helped me develop discipline,
+                        responsibility, and strong organisational skills.
+                    </p>
+                </div>
+                <div class="highlight-card" data-aos="flip-left" data-aos-delay="450">
+                    <img src="images/career.jpeg" alt="Career Image">
+                    <h4>Preparation for Career</h4>
+                    <p>
+                        My education prepared me with the mindset and skills needed to adapt to future
+                        professional challenges in information-related fields.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+        <p><i>“Creativity begins when curiosity meets courage.”</i></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Back to Top Button
+        window.onscroll = function() { toggleBackToTop() };
+        function toggleBackToTop() {
+            const btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

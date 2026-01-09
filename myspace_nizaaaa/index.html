@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Digital Journey – Nurul Aniza</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== Global Styles ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #3B2F2F;
+    scroll-behavior: smooth;
+    position: relative;
+    min-height: 100vh;
+    background-color: #F6F2E9; /* fallback color */
+}
+
+/* ===== Overlay Background utama ===== */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url(images/background\ .jpg) center/cover no-repeat; /* gambar utama */
+    opacity: 0.5; /* overlay kelabu separuh supaya gambar tak terlalu terang */
+    z-index: -1;
+}
+
+/* ===== Navigation ===== */
+nav {
+    width: 100%;
+    background: linear-gradient(90deg, #4A3425, #6B4F38);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+nav h2 { font-family: 'Playfair Display', serif; color: #F6F2E9; font-size: 28px; letter-spacing: 1px; }
+nav a { color: #F6F2E9; margin-left: 25px; font-weight: 500; position: relative; transition: 0.3s; text-decoration: none;}
+nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: #88B04B; transition: 0.3s; }
+nav a:hover::after { width: 100%; }
+nav a:hover { color: #DCC6A0; }
+
+/* ===== Hero Section ===== */
+.header {
+    position: relative;
+    text-align: center;
+    padding: 140px 20px 140px;
+    background-image: url(images/gmbr\ header.jpg);
+    background-size: cover;
+    background-position: center 95%;
+    color: #fff;
+    overflow: hidden;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+}
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 2;
+    margin-bottom: 35px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.typing {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    border-right: .1em solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 5px;
+    text-align: center;
+}
+.header .btn {
+    padding: 16px 36px;
+    margin: 8px;
+    background-color: #88B04B;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+.header .btn:hover { background-color: #4A3425; transform: scale(1.05); }
+
+/* ===== Panel Section ===== */
+.panel-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 60px 20px;
+    position: relative;
+}
+.panel-section .panel { position: relative; z-index: 1; background-color: #FFF6E0; border-radius: 20px; padding: 20px; }
+.panel {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+.panel.show { opacity: 1; transform: translateY(0);}
+.panel:nth-child(even) { flex-direction: row-reverse; }
+.panel-img { flex: 1; min-width: 320px; overflow: hidden; border-radius: 20px; }
+.panel-img img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.5s; }
+.panel-img img:hover { transform: scale(1.05); }
+.panel-text { flex: 1; padding: 20px 40px; min-width: 320px; }
+.panel-text h2 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 15px; color: #4A3425; }
+.panel-text p { font-size: 17px; line-height: 1.8; color: #5C4A3F; text-align: justify; }
+.panel-text span.highlight { color: #88B04B; font-weight: 600; }
+.panel-text .btn { margin-top:15px; }
+
+/* ===== Portfolio Section ===== */
+#portfolio {
+    margin: 100px auto;
+    padding: 60px 20px;
+    max-width: 1000px;
+    position: relative;
+}
+#portfolio h2, #portfolio .project-card { position: relative; z-index: 1; }
+#portfolio h2 { text-align:center; margin-bottom:50px; font-family:'Playfair Display', serif; font-size:36px; color:#4A3425; }
+#portfolio .project-card {
+    display:flex;
+    flex-wrap: wrap;
+    background-color: #FFF6E0; /* cream */
+    border-radius: 20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+    opacity:0;
+    transform: translateY(50px);
+}
+#portfolio .project-card.show { opacity:1; transform:translateY(0);}
+#portfolio .project-img { flex:1; min-width:320px; overflow:hidden; }
+#portfolio .project-img img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s; }
+#portfolio .project-img img:hover { transform: scale(1.05); }
+#portfolio .project-text { flex:1; padding:30px; min-width:320px; }
+#portfolio .project-text h3 { font-family:'Playfair Display', serif; font-size:28px; margin-bottom:15px; color:#4A3425; }
+#portfolio .project-text p { font-size:17px; line-height:1.8; color:#5C4A3F; text-align: justify; }
+.project-text .btn {
+    padding: 10px 25px;
+    font-size: 14px;
+    border-radius: 40px;
+    background-color: #88B04B;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.project-text .btn:hover { background-color: #4A3425; transform: scale(1.05); }
+
+/* ===== Timeline Section ===== */
+.timeline {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 60px 20px;
+    position: relative;
+}
+.timeline h2, .timeline-container, .timeline-item { position: relative; z-index: 1; }
+.timeline h2 { text-align: center; margin-bottom: 60px; font-family: 'Playfair Display', serif; font-size: 36px; color: #4A3425; }
+.timeline-container { position: relative; margin: 0 auto; padding-left: 40px; }
+.timeline-container::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background: #88B04B; }
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+    padding-left: 40px;
+    opacity:0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+    background-color: #FFF6E0; /* cream */
+    border-radius: 20px;
+    padding: 20px;
+}
+.timeline-item.show { opacity:1; transform:translateX(0);}
+.timeline-item::before { content: ''; position: absolute; left: -24px; width: 16px; height: 16px; background: #FFF6E0; border: 4px solid #88B04B; border-radius: 50%; top: 0; }
+.timeline-item h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; color: #4A3425; }
+.timeline-item p { font-size: 16px; line-height: 1.7; color: #5C4A3F; text-align: justify; }
+
+/* ===== Footer ===== */
+footer {
+    background: linear-gradient(90deg, #4A3425, #6B4F38);
+    color: #F6F2E9;
+    padding: 40px 20px 30px;
+    text-align: center;
+    font-size: 14px;
+}
+footer i { font-style: italic; }
+footer .social-icons { margin: 15px 0; }
+footer .social-icons a { color: #F6F2E9; margin: 0 10px; font-size: 20px; transition: 0.3s; }
+footer .social-icons a:hover { color: #88B04B; }
+
+/* ===== Back-to-top ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    background-color: #88B04B;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: none;
+    cursor: pointer;
+    z-index: 99;
+    transition: 0.3s;
+}
+.back-to-top:hover { background-color: #4A3425; transform: scale(1.1); }
+
+/* ===== Animations ===== */
+@keyframes fadeIn { 0% { opacity: 0; transform: translateY(-20px);} 100% { opacity: 1; transform: translateY(0);} }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <h2>My Digital Journey</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="profile.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="internship.html">Internship</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="header" id="home">
+    <div class="header-content">
+        <h1>Welcome to My Digital Space</h1>
+        <p>I’m <b>Nurul Aniza Ismail Hashim</b>, <span class="typing"></span></p>
+        <a href="#about" class="btn">About Me</a>
+        <a href="#portfolio" class="btn">Portfolio</a>
+    </div>
+</section>
+
+<!-- Panels, Portfolio, Timeline, Footer (same as your original code) -->
+
+<!-- Featured Info Panels -->
+<section class="panel-section" id="about">
+    <div class="panel show">
+        <div class="panel-img"><img src="images/data scientist.jpg" alt="Vision"></div>
+        <div class="panel-text">
+            <h2>My Vision</h2>
+            <p>I aspire to become a <span class="highlight">Data Scientist</span>, with a strong interest in analyzing complex datasets to uncover meaningful insights, support data-driven decision making, and solve real-world problems efficiently and creatively using analytical and statistical approaches.</p>
+        </div>
+    </div>
+    <div class="panel show">
+        <div class="panel-img"><img src="images/me with book.jpg" alt="Hobby"></div>
+        <div class="panel-text">
+            <h2>Hobby & Fun Facts</h2>
+            <p>In my free time, I enjoy reading books, watching movies, and exploring new technologies, as they allow me to gain fresh perspectives and stay curious about innovation. These activities enhance my creativity, critical thinking, and adaptability, which positively influence how I approach problem-solving and continuous learning in both academic and professional environments.</p>
+        </div>
+    </div>
+    <div class="panel show">
+        <div class="panel-img"><img src="images/gambar dekan sem4.jpeg" alt="Achievements"></div>
+        <div class="panel-text">
+            <h2>Achievements & Awards</h2>
+            <p>Recognized on the Dean’s List and actively involved in workshops, competitions, and volunteering activities, demonstrating strong academic excellence, versatility in various skill areas, and leadership through continuous participation and contribution.</p>
+        </div>
+    </div>
+    <div class="panel show">
+        <div class="panel-img"><img src="images/motto.jpg" alt="Values"></div>
+        <div class="panel-text">
+            <h2>Core Values / Motto</h2>
+            <p>Creativity, curiosity, and continuous learning guide me to approach challenges innovatively and strive for excellence in everything I do.</p>
+        </div>
+    </div>
+    <div class="panel show">
+        <div class="panel-img"><img src="images/Formal.jpg" alt="Goals"></div>
+        <div class="panel-text">
+            <h2>Future Goals / Aspirations</h2>
+            <p>I aim to contribute to innovative digital solutions in analytics, web development, and information management by applying data-driven approaches, analytical thinking, and technical skills to design efficient systems, support informed decision-making, and create meaningful solutions that address real-world challenges and drive positive impact.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio">
+    <h2>My Portfolio</h2>
+    <div class="project-card show">
+        <div class="project-img"><img src="images/websitespkj.png" alt="Mini Project"></div>
+        <div class="project-text">
+            <h3>Mini Project: Website Permohonan Kenderaan Jabatan Mahkamah Negeri Selangor</h3>
+            <p>This project demonstrates my skills in web system development using <span class="highlight">PHP and MySQL,</span> featuring a structured database, user authentication, and an efficient staff–admin workflow for managing official vehicle applications.</p>
+            <a href="project1.html" class="btn" target="_blank">View Project</a>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline" id="timeline">
+    <h2>My Journey</h2>
+    <div class="timeline-container">
+        <div class="timeline-item show">
+            <h3>2023 – Started Diploma</h3>
+            <p>Began Diploma in Information Management at UiTM, diving into programming, databases, and digital technologies.</p>
+        </div>
+        <div class="timeline-item show">
+            <h3>2024 – First Mini Project</h3>
+            <p>Developed a small web application, learning project planning and coding fundamentals.</p>
+        </div>
+        <div class="timeline-item show">
+            <h3>2024 – Achievements & Workshops</h3>
+            <p>Recognized on Dean’s List and attended workshops to enhance digital and analytical skills.</p>
+        </div>
+        <div class="timeline-item show">
+            <h3>2025 – Internship & Advanced Projects</h3>
+            <p>Completed internship and mini projects applying knowledge to real-world tasks, improving technical skills and problem-solving.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+    <p><i>“Creativity begins when curiosity meets courage.”</i></p>
+</footer>
+
+<!-- Back-to-top -->
+<div class="back-to-top" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></div>
+
+<!-- Scripts -->
+<script>
+// Typing Effect Fixed
+const typingTexts = ["Information Management Student.", "Data Management Enthusiast.", "Aspiring Data Scientist.", "Web & App Developer."];
+let i = 0, j = 0, currentText = '', isDeleting = false;
+const typingSpeed = 100;
+const typingElement = document.querySelector('.typing');
+
+function type() {
+    if(!typingElement) return;
+    if(i >= typingTexts.length) i = 0; // reset if exceed array
+
+    const fullText = typingTexts[i] || ''; // safety fallback
+    if(!isDeleting) {
+        currentText = fullText.substring(0, j + 1);
+        j++;
+        typingElement.textContent = currentText;
+        if(j === fullText.length){ isDeleting = true; setTimeout(type, 1000); return; }
+    } else {
+        currentText = fullText.substring(0, j - 1);
+        j--;
+        typingElement.textContent = currentText;
+        if(j === 0){ isDeleting = false; i++; setTimeout(type, 500); return; }
+    }
+    setTimeout(type, typingSpeed);
+}
+type();
+
+// Scroll Animation for Panels, Timeline & Portfolio
+const panels = document.querySelectorAll('.panel');
+const timelineItems = document.querySelectorAll('.timeline-item');
+const projectCards = document.querySelectorAll('.project-card');
+function showOnScroll(){
+    const triggerBottom = window.innerHeight / 5 * 4;
+    panels.forEach(panel => { const panelTop = panel.getBoundingClientRect().top; if(panelTop < triggerBottom) panel.classList.add('show'); });
+    timelineItems.forEach(item => { const itemTop = item.getBoundingClientRect().top; if(itemTop < triggerBottom) item.classList.add('show'); });
+    projectCards.forEach(card => { const cardTop = card.getBoundingClientRect().top; if(cardTop < triggerBottom) card.classList.add('show'); });
+}
+window.addEventListener('scroll', showOnScroll);
+
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => { if(window.scrollY>400) backBtn.style.display='block'; else backBtn.style.display='none'; });
+function scrollToTop(){ window.scrollTo({ top:0, behavior:'smooth' }); }
+</script>
+
+</body>
+</html>

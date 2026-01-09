@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Project – Nurul Aniza</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+/* ===== Global ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #3B2F2F;
+    scroll-behavior: smooth;
+    position: relative;  /* penting untuk overlay */
+    min-height: 100vh;
+    background-color: #F6F2E9; /* fallback color */
+}
+
+/* ===== Overlay Background utama ===== */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url(images/background\ .jpg) center/cover no-repeat; /* ganti nama gambar tiap page */
+    opacity: 0.5; /* overlay kelabu separuh supaya konten tetap jelas */
+    z-index: -1;
+}
+
+/* ===== Header ===== */
+.header {
+    position: relative;
+    text-align: center;
+    padding: 160px 20px 100px;
+    color: #fff;
+    background-image: url(images/backgroud\ header\ portfolio.jpg); 
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5); /* overlay gelap untuk header */
+    z-index: 0;
+}
+.header h1 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.header p {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #fff;
+}
+.header .btn-home {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 12px 28px;
+    background:#88B04B;
+    color:#fff;
+    border-radius:50px;
+    transition:0.3s;
+    margin-top:20px;
+    text-decoration: none;
+}
+.header .btn-home:hover { background:#4A3425; transform:scale(1.05); }
+
+/* ===== Project Info Cards ===== */
+.project-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+.project-card { background-color:#FFF9F0; border-radius:25px; box-shadow:0 12px 30px rgba(0,0,0,0.15); margin-bottom:50px; overflow:hidden; display:flex; flex-wrap: wrap; transition:0.5s; }
+.project-card:hover { transform: translateY(-6px); box-shadow:0 18px 36px rgba(0,0,0,0.2);}
+.project-img { flex:1; min-width:300px; }
+.project-img img { width:100%; height:100%; object-fit:cover; }
+.project-text { flex:1; padding:30px; min-width:300px; text-align:justify; }
+.project-text h3 { font-family:'Playfair Display', serif; font-size:32px; margin-bottom:15px; color:#4A3425; }
+.project-text p { font-size:17px; line-height:1.8; color:#5C4A3F; margin-bottom:12px; }
+.project-text ul { list-style:none; padding-left:0; margin-top:0; }
+.project-text ul li { margin-bottom:10px; position:relative; padding-left:20px; }
+.project-text ul li::before { content:'•'; position:absolute; left:0; color:#88B04B; font-weight:bold; }
+
+/* ===== Project Timeline ===== */
+.development-section h2 {
+    text-align: center;
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+    color:#4A3425;
+    margin-bottom:40px;
+}
+.timeline { position:relative; max-width:900px; margin:0 auto 60px auto; }
+.timeline::before { content:''; position:absolute; width:4px; background:#88B04B; top:0; bottom:0; left:20px; margin-left:-2px; }
+.timeline-item { display:flex; margin-bottom:50px; position:relative; }
+.timeline-dot { width:16px;height:16px;background:#88B04B;border-radius:50%; position:absolute; left:12px; top:0; }
+.timeline-content { background:#FFF; padding:20px 25px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.12); margin-left:50px; transition:0.4s; text-align:justify; }
+.timeline-content:hover { transform:translateY(-6px); box-shadow:0 16px 32px rgba(0,0,0,0.2); }
+.timeline-content h3 { font-family:'Playfair Display', serif; color:#4A3425; margin-bottom:10px; }
+.timeline-content p { color:#5C4A3F; line-height:1.7; }
+
+/* ===== Project Screenshots ===== */
+.project-screenshots {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+.project-screenshots h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #4A3425;
+    margin-bottom: 40px;
+}
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+.screenshot-item {
+    background:#FFF9F0;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    text-align:center;
+    transition:0.3s;
+}
+.screenshot-item:hover { transform: translateY(-6px); box-shadow:0 16px 32px rgba(0,0,0,0.2); }
+.screenshot-item img { width:100%; height:180px; object-fit:cover; }
+.screenshot-item p { font-size:16px; padding:10px 15px; color:#5C4A3F; line-height:1.5; }
+
+/* ===== Lesson Learned ===== */
+.lesson-learned {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align:justify;
+}
+.lesson-learned h2 {
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+    color:#4A3425;
+    margin-bottom:30px;
+}
+.lesson-learned p {
+    font-size:17px;
+    line-height:1.8;
+    color:#5C4A3F;
+    margin-bottom:15px;
+}
+
+/* ===== Back-to-top button ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    background-color: #88B04B;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: none;
+    cursor: pointer;
+    z-index: 99;
+    transition: 0.3s;
+}
+.back-to-top:hover { background-color:#4A3425; transform:scale(1.1); }
+
+/* ===== Footer ===== */
+footer { margin-top:80px; background: linear-gradient(135deg,#4A3425,#6B4F38); color:#F6F2E9; padding:30px; text-align:center; font-size:14px;}
+footer i{font-style:italic;}
+@media(max-width:600px){
+    .timeline-content{margin-left:40px;padding:15px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<section class="header" data-aos="fade-down">
+    <h1>My Portfolio</h1>
+    <p>
+        This project demonstrates my web development and design skills through creating an interactive, visually appealing, and responsive personal website. 
+    </p>
+    <a href="index.html" class="btn-home"><i class="fas fa-home"></i> Back to Homepage</a>
+</section>
+
+<!-- Project Info Cards -->
+<section class="project-section" data-aos="fade-up">
+    <div class="project-card">
+        <div class="project-img"><img src="images/front page.jpeg" alt="Mini Project"></div>
+        <div class="project-text">
+            <h3>Project Overview</h3>
+            <p>This website serves as my personal digital portfolio, showcasing my academic journey, skills, and achievements in an interactive way. It includes modules for staff and admin, with easy navigation and responsive design.</p>
+            <ul>
+                <li>Responsive web design using HTML, CSS, JS</li>
+                <li>Interactive animations and scroll effects</li>
+                <li>Organized sections for easy navigation</li>
+                <li>Clean typography and color palette</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="images/mini project spkjmns.jpeg" alt="Design Phase"></div>
+        <div class="project-text">
+            <h3>Project Objectives</h3>
+            <ul>
+                <li>Centralize vehicle booking requests and records</li>
+                <li>Simplify staff application and admin approval process</li>
+                <li>Provide real-time status updates</li>
+                <li>Maintain history for reporting</li>
+                <li>Offer a user-friendly, responsive interface</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Development Timeline -->
+<section class="development-section" data-aos="fade-up">
+    <h2>Project Development Timeline</h2>
+    <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Planning</h3>
+                <p>Understanding current workflow, identifying issues, and defining project requirements and objectives.</p>
+            </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Design & UI/UX</h3>
+                <p>Wireframes, color schemes, fonts, and responsive layouts designed for clarity and usability for staff and admin modules.</p>
+            </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Development</h3>
+                <p>Implemented core functionalities, secure login, request forms, dashboards, assignment features, and database integration.</p>
+            </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Testing & Launch</h3>
+                <p>Thorough testing, bug fixing, optimization, and deployment with staff training for smooth operational use.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Screenshots -->
+<section class="project-screenshots" data-aos="fade-up">
+    <h2>Project Screenshots</h2>
+    <div class="screenshot-grid">
+        <div class="screenshot-item">
+            <img src="images/front page.jpeg" alt="Homepage">
+            <p>Homepage – Clean and interactive layout</p>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/staff module.jpeg" alt="Staff Module">
+            <p>Staff Module – Request form & status tracking</p>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/admin module.jpeg" alt="Admin Module">
+            <p>Admin Module – Assign vehicle & driver efficiently</p>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/report.jpeg" alt="Reports">
+            <p>Reports – Real-time and history view</p>
+        </div>
+    </div>
+</section>
+
+<!-- Lesson Learned -->
+<section class="lesson-learned" data-aos="fade-up">
+    <h2>Lesson Learned</h2>
+    <p>Through this project, I improved my skills in HTML, CSS, JavaScript, and responsive web design. I learned to create interactive user interfaces and implement a practical workflow for staff and admin modules.</p>
+    <p>Collaboration and planning were essential in understanding user requirements and translating them into functional design. I also gained experience in problem-solving, debugging, and deploying a fully functional system.</p>
+    <p>Overall, this project strengthened my ability to combine design and development while keeping user experience at the forefront.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+    <p><i>“Creativity begins when curiosity meets courage.”</i></p>
+</footer>
+
+<!-- Back-to-top -->
+<div class="back-to-top" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></div>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+
+    // Back to top
+    const backBtn = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 400) backBtn.style.display = 'block';
+        else backBtn.style.display = 'none';
+    });
+    function scrollToTop() { window.scrollTo({ top:0, behavior:'smooth' }); }
+</script>
+
+</body>
+</html>

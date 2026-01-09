@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – Nurul Aniza</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- AOS Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<style>
+/* ===== Global ===== */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(images/background\ .jpg) center/cover no-repeat;
+    color: #3B2F2F;
+    scroll-behavior: smooth;
+}
+
+/* ===== Navigation ===== */
+nav {
+    width: 100%;
+    background: linear-gradient(90deg, #4A3425, #6B4F38);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+nav h2 { color: #F6F2E9; font-family: 'Playfair Display', serif; font-size: 26px; }
+nav a {
+    color: #F6F2E9;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+nav a::after { content: ''; position: absolute; width: 0; height: 2px; background: #88B04B; bottom: -4px; left: 0; transition: 0.3s; }
+nav a:hover::after, nav a.active::after { width: 100%; }
+nav a:hover, nav a.active { color: #DCC6A0; }
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    padding: 120px 20px 80px;
+    color: #F6F2E9;
+    position: relative;
+    overflow: hidden;
+    background: url(images/background\ header\ contact.jpg) center/cover no-repeat;
+}
+.header::after {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.45);
+    pointer-events:none;
+}
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+.header p {
+    font-size: 18px;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+@keyframes floatUpDown { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ===== Contact Section ===== */
+.contact-wrapper {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Hero Photo */
+.photo-hero img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.photo-hero h3 {
+    margin-top: 20px;
+    color: #4A3425;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+.photo-hero p {
+    color: #5C4A3F;
+    max-width: 550px;
+    margin: 10px auto 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Cards container (side-by-side) */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Contact Boxes */
+.contact-box {
+    background-color: #FFF9F0;
+    padding: 35px 30px;
+    border-radius: 25px;
+    flex: 1 1 400px;
+    max-width: 480px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    transition: 0.3s;
+}
+.contact-box:hover { transform: translateY(-6px); box-shadow: 0 18px 35px rgba(0,0,0,0.18); }
+.contact-box h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: #4A3425; margin-bottom: 25px; text-align:center; }
+.contact-box p { font-size: 16px; line-height: 1.8; color: #5C4A3F; text-align:center; margin-bottom:15px; }
+.contact-links a {
+    display: block;
+    text-decoration: none;
+    background-color: #F0E8DC;
+    color: #3B2F2F;
+    padding: 14px 20px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    font-size: 16px;
+    text-align: center;
+}
+.contact-links a:hover { background-color: #88B04B; color: #3B2F2F; transform: scale(1.05); }
+
+/* Form */
+label { font-size: 16px; font-weight: 500; }
+input, textarea {
+    width: 100%; padding: 14px; margin: 10px 0 18px;
+    border-radius: 12px; border: 1px solid #CCC;
+    font-family: 'Poppins', sans-serif; font-size: 16px; transition: 0.3s;
+}
+input:focus, textarea:focus { border: 2px solid #88B04B; outline: none; }
+textarea { resize: none; height: 150px; }
+button {
+    background-color: #4A3425; color: #F6F2E9; border: none;
+    padding: 14px 36px; border-radius: 30px; font-size: 16px; cursor: pointer; transition: 0.3s;
+}
+button:hover { background-color: #88B04B; color: #3B2F2F; }
+
+/* Footer */
+footer {
+    margin-top: 70px;
+    background: linear-gradient(135deg, #4A3425, #6B4F38);
+    color: #F6F2E9;
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+}
+footer p { margin: 5px 0; }
+footer i { font-style: italic; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-wrapper { gap: 40px; padding: 0 20px; }
+    .photo-hero img { width: 160px; height:160px; }
+    .cards-container { flex-direction: column; gap: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <h2>My Digital Journey</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="profile.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="internship.html">Internship</a>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
+</nav>
+
+<!-- Header -->
+<section class="header">
+    <h1 data-aos="fade-down">Let’s Connect</h1>
+    <p data-aos="fade-up">
+        Thank you for visiting my website! I’m always open to connecting with new people,
+        whether it’s for collaboration, inspiration, or friendship. Communication is the start of every opportunity.
+    </p>
+</section>
+
+<!-- Contact Content -->
+<div class="contact-wrapper">
+
+    <!-- Hero Photo -->
+    <div class="photo-hero" data-aos="fade-down">
+        <img src="images/P2.jpg" alt="Nurul Aniza">
+    </div>
+
+    <!-- Cards side by side -->
+    <div class="cards-container">
+        <!-- Contact Info -->
+        <div class="contact-box" data-aos="fade-up">
+            <h3>Contact Information</h3>
+            <div class="contact-links">
+                <a href="tel:0146240616">📞 Phone: 014-6240616</a>
+                <a href="mailto:nurulaniza135@gmail.com?subject=Hello%20Nurul&body=Hi%20Nurul,%0D%0A%0D%0AI%20would%20like%20to%20connect%20with%20you.">📧 Email: nurulaniza135@gmail.com</a>
+                <a href="https://www.instagram.com/i.nizaaaa/" target="_blank">📸 Instagram: @i.nizaaaa</a>
+                <a href="https://www.tiktok.com/@i.nizaaa" target="_blank">🎵 TikTok: @i.nizaaa</a>
+            </div>
+            <p>Feel free to send a message or even share your creative projects. I’d love to hear about them!</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-box" data-aos="fade-up">
+            <h3>Send Me a Message</h3>
+            <form>
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your name">
+                <label>Your Message</label>
+                <textarea placeholder="Write your message here..."></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+    <p><i>“Creativity begins when curiosity meets courage.”</i></p>
+</footer>
+
+<script>
+AOS.init({ duration: 1000 });
+</script>
+
+</body>
+</html>

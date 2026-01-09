@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me – Nurul Aniza</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<style>
+/* ===== Global Styles ===== */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #3B2F2F;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    background-color: #F6F2E9;
+}
+body::before {
+    content:'';
+    position: fixed;
+    inset:0;
+    background: url(images/background\ .jpg) center/cover no-repeat;
+    opacity: 0.5;
+    z-index:-1;
+}
+
+/* ===== Navigation ===== */
+nav {
+    width:100%;
+    background: linear-gradient(90deg, #4A3425, #6B4F38);
+    padding: 18px 40px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    position: sticky;
+    top:0;
+    z-index:100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+nav h2 {
+    font-family: 'Playfair Display', serif;
+    color:#F6F2E9;
+    font-size:26px;
+}
+nav a {
+    color:#F6F2E9;
+    text-decoration: none;
+    margin-left:25px;
+    font-weight:500;
+    position: relative;
+    transition:0.3s;
+}
+nav a::after {
+    content:'';
+    position: absolute;
+    width:0;
+    height:2px;
+    bottom:-4px;
+    left:0;
+    background:#88B04B;
+    transition:0.3s;
+}
+nav a:hover::after,
+nav a.active::after { width:100%; }
+nav a:hover,
+nav a.active { color:#DCC6A0; }
+
+/* ===== Header ===== */
+.header {
+    text-align:center;
+    padding:120px 20px 80px;
+    color:#fff;
+    position:relative;
+    background: url(images/gmbr\ header.jpg) center/cover no-repeat;
+}
+.header::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.25);
+}
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size:42px;
+    margin-bottom:20px;
+    position: relative;
+    z-index:1;
+}
+.header p {
+    font-size:18px;
+    max-width:850px;
+    margin:0 auto;
+    line-height:1.7;
+    color:#fff;
+    position: relative;
+    z-index:1;
+}
+
+/* ===== Profile Section ===== */
+.profile-section {
+    max-width:1000px;
+    margin:60px auto;
+    padding:40px 50px;
+    background-color:#FFF9F0;
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+    text-align:justify;
+}
+.profile-img {
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:0 auto 30px auto;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.profile-img img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.profile-section h2 {
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-size:34px;
+    margin-bottom:25px;
+    color:#4A3425;
+}
+.profile-section p {
+    font-size:17px;
+    line-height:1.8;
+    color:#5C4A3F;
+    margin-bottom:22px;
+}
+
+/* ===== Buttons ===== */
+.profile-section .btn {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 30px;
+    margin:5px;
+    background-color:#88B04B;
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    font-size:16px;
+    border-radius:10px;
+    transition:0.3s;
+    border:none;
+    cursor:pointer;
+}
+.profile-section .btn:hover { background-color:#4A3425; }
+
+/* ===== Creative Buttons ===== */
+.creative-btn {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 35px;
+    margin:10px;
+    background: linear-gradient(135deg, #88B04B, #DCC6A0);
+    color:#fff;
+    font-weight:600;
+    font-size:17px;
+    border-radius:50px;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+.creative-btn:hover {
+    background: linear-gradient(135deg, #4A3425, #88B04B);
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* ✅ BUTTON CENTER (TAMBAH SAHAJA) */
+.button-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+/* ===== Fun Facts ===== */
+.fun-facts {
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+.fact-card {
+    background:#88B04B;
+    color:#fff;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    width:220px;
+}
+
+/* ===== Timeline ===== */
+.timeline-title { text-align:center; margin:60px 0 20px 0; }
+.timeline-title h2 {
+    font-family:'Playfair Display', serif;
+    font-size:32px;
+    color:#4A3425;
+}
+.timeline {
+    position:relative;
+    max-width:900px;
+    margin:50px auto;
+}
+.timeline::before {
+    content:'';
+    position:absolute;
+    left:50%;
+    width:4px;
+    height:100%;
+    background:#88B04B;
+    transform:translateX(-50%);
+}
+.timeline-item {
+    padding:20px 30px;
+    position:relative;
+    width:50%;
+}
+.timeline-item:nth-child(odd){ left:0; }
+.timeline-item:nth-child(even){ left:50%; }
+.timeline-content {
+    background:#FFF9F0;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== Back to Top ===== */
+#backToTop {
+    position: fixed;
+    bottom:30px;
+    right:30px;
+    background-color:#88B04B;
+    color:#fff;
+    border:none;
+    padding:12px 14px;
+    border-radius:50%;
+    font-size:18px;
+    cursor:pointer;
+    display:none;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: linear-gradient(135deg, #4A3425, #6B4F38);
+    color:#F6F2E9;
+    padding:30px;
+    text-align:center;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <h2>My Digital Journey</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="profile.html" class="active">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="internship.html">Internship</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- Header -->
+<section class="header">
+    <h1 data-aos="fade-down">About Me</h1>
+    <p data-aos="fade-up">
+        Learn more about my background, interests, and journey. Here you will discover my personal story, academic path, and passions that inspire my digital projects.
+    </p>
+</section>
+
+<!-- Profile Section -->
+<div class="profile-section" data-aos="fade-up">
+    <div class="profile-img">
+        <img src="images/P3.jpg" alt="Nurul Aniza Ismail Hashim">
+    </div>
+
+    <h2>Hello, I’m Nurul Aniza!</h2>
+
+    <p>
+        Hello and welcome to my personal website! My name is <b>Nurul Aniza Ismail Hashim</b>, a passionate and creative Diploma in Information Management student at Universiti Teknologi MARA (UiTM).
+    </p>
+
+    <p>
+        I’ve always believed that creativity and technology go hand in hand.
+        <span id="dots">...</span>
+        <span id="moreText" style="display:none;">
+            What started as a small curiosity in HTML and CSS has now turned into a genuine interest in designing and developing user-friendly websites, a journey that has not only taught me the technical skills needed to bring my ideas to life but also helped me discover my passion for creativity and problem-solving. Every project I work on allows me to experiment with layouts, colors, and interactive elements, helping me understand how thoughtful design can improve the user experience. Along the way, I have learned patience, attention to detail, and the joy of seeing a simple concept transform into a functional and visually appealing digital platform that others can enjoy and navigate with ease. This journey continues to inspire me to grow, explore new possibilities, and use technology as a means to express my ideas and personality in meaningful ways.
+        </span>
+    </p>
+
+    <button onclick="toggleText()" class="btn">Read More</button>
+
+    <div class="fun-facts">
+        <div class="fact-card">I love exploring nature and traveling.</div>
+        <div class="fact-card">HTML & CSS are my favorite languages.</div>
+        <div class="fact-card">Minimalist design inspires me.</div>
+    </div>
+
+    <!-- Creative Buttons -->
+    <div class="button-container" data-aos="fade-up" style="margin-top:40px;">
+        <a href="photos.html" class="creative-btn">
+            <i class="fa-solid fa-image"></i>
+            <span>View My Gallery</span>
+        </a>
+    </div>
+</div>
+
+<!-- Timeline -->
+<section class="timeline-title" data-aos="fade-up">
+    <h2>My Journey Timeline</h2>
+</section>
+
+<div class="timeline" data-aos="fade-up">
+    <div class="timeline-item">
+        <div class="timeline-content">
+            <h3>2023 - Joined UiTM</h3>
+            <p>Started my Diploma in Information Management, where I began exploring the world of technology and information systems. This program has allowed me to develop both practical skills and knowledge, while also discovering my passion for creativity and problem-solving. Each project and experience has motivated me to grow and improve as I continue my learning journey.</p>
+        </div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-content">
+            <h3>2024 - Learned HTML & CSS</h3>
+            <p>Developed my first website projects, which gave me hands-on experience in turning ideas into functional designs. Through these projects, I learned how to structure layouts, style content, and make websites more user-friendly. It was exciting to see my creations come to life, and it strengthened my interest in web development and digital design.</p>
+        </div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-content">
+            <h3>2025 - Internship & Projects</h3>
+            <p>Gained practical experience during my internship and projects, which allowed me to apply the skills I had learned in real-world situations. I worked on creating digital materials, managing tasks, and collaborating with others, which helped me build confidence and improve my problem-solving abilities. These experiences gave me a better understanding of how theory translates into practice and motivated me to keep learning and growing in my field.</p>
+        </div>
+    </div>
+</div>
+
+<button id="backToTop" onclick="scrollToTop()">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<footer>
+    <p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+    <p><i>“Creativity begins when curiosity meets courage.”</i></p>
+</footer>
+
+<script>
+AOS.init({ duration:1000 });
+
+function toggleText() {
+    var moreText = document.getElementById("moreText");
+    var dots = document.getElementById("dots");
+    var btn = event.target;
+
+    if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        dots.style.display = "none";
+        btn.innerText = "Read Less";
+    } else {
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        btn.innerText = "Read More";
+    }
+}
+
+window.onscroll = function() {
+    const btn = document.getElementById("backToTop");
+    btn.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+};
+
+function scrollToTop() {
+    window.scrollTo({ top:0, behavior:'smooth' });
+}
+</script>
+
+</body>
+</html>

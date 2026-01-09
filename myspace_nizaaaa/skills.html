@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills – Nurul Aniza</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<style>
+/* ===== Global ===== */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F6F2E9;
+    color:#3B2F2F;
+    scroll-behavior:smooth;
+}
+p{text-align:justify;}
+
+/* ===== Overlay Background utama ===== */
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:url(images/background\ .jpg) center/cover no-repeat;
+    opacity:0.5;
+    z-index:-1;
+}
+
+/* ===== Navigation ===== */
+nav{
+    width:100%;
+    background:linear-gradient(90deg,#4A3425,#6B4F38);
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+nav h2{
+    font-family:'Playfair Display',serif;
+    color:#F6F2E9;
+    font-size:26px;
+}
+nav a{
+    color:#F6F2E9;
+    margin-left:25px;
+    text-decoration:none;
+    font-weight:500;
+    position:relative;
+    transition:.3s;
+}
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    bottom:-4px;
+    left:0;
+    background:#88B04B;
+    transition:.3s;
+}
+nav a:hover::after,
+nav a.active::after{ width:100%; }
+nav a:hover,
+nav a.active{ color:#DCC6A0; }
+
+/* ===== Header ===== */
+.header{
+    text-align:center;
+    padding:120px 20px 80px;
+    color:#F6F2E9;
+    position:relative;
+    overflow:hidden;
+    background:url(images/background\ header\ skills.jpg) center/cover no-repeat;
+}
+.header::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.25);
+}
+@keyframes floatUpDown{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+}
+.header h1{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    margin-bottom:20px;
+    position:relative;
+    z-index:1;
+    animation:floatUpDown 3s ease-in-out infinite;
+}
+.header p{
+    max-width:850px;
+    margin:0 auto;
+    font-size:18px;
+    line-height:1.7;
+    color:#F6F2E9;
+    position:relative;
+    z-index:1;
+    text-align:justify;
+}
+
+/* ===== Skills Section ===== */
+.skills-wrapper{
+    max-width:1200px;
+    margin:60px auto;
+    padding:40px 30px;
+    background:#FFF9F0;
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+.skills-intro{
+    max-width:900px;
+    margin:0 auto 50px;
+}
+.skills-intro p{
+    font-size:17px;
+    line-height:1.8;
+    color:#5C4A3F;
+}
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+.skill-card{
+    background:#FFF;
+    border-radius:20px;
+    padding:35px 30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:.35s;
+}
+.skill-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 16px 32px rgba(0,0,0,.18);
+}
+.skill-card img.skill-img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+    transform: translateY(20px);
+    object-position:center 15%;
+}
+.skill-card h3{
+    font-family:'Playfair Display',serif;
+    font-size:26px;
+    color:#4A3425;
+    text-align:center;
+    margin-bottom:15px;
+}
+.skill-card h3 i{
+    color:#88B04B;
+    margin-right:8px;
+}
+.skill-card p{
+    font-size:16px;
+    line-height:1.8;
+    color:#5C4A3F;
+    margin-bottom:25px;
+}
+.skill-list{
+    list-style:none;
+}
+.skill-list li{
+    background:#EFE6D8;
+    padding:12px 15px;
+    border-radius:10px;
+    margin-bottom:12px;
+    font-size:15px;
+}
+.skill-bar{
+    height:10px;
+    background:#DDD1C4;
+    border-radius:8px;
+    margin-top:6px;
+    overflow:hidden;
+}
+.skill-bar-inner{
+    height:100%;
+    background:#88B04B;
+    border-radius:8px;
+}
+
+/* ===== Development Timeline (ZIGZAG) ===== */
+.development-section{
+    max-width:1200px;
+    margin:80px auto;
+    padding:50px 30px;
+    background:#FFF9F0;
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+.development-section h2{
+    font-family:'Playfair Display',serif;
+    font-size:36px;
+    text-align:center;
+    margin-bottom:15px;
+}
+.dev-intro{
+    max-width:850px;
+    margin:0 auto 50px;
+    color:#5C4A3F;
+    text-align:center;
+}
+
+/* Timeline Zigzag */
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 0;
+}
+.timeline::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:4px;
+    height:100%;
+    background:#88B04B;
+    border-radius:5px;
+}
+
+.timeline-item{
+    padding:20px 40px;
+    position:relative;
+    width:50%;
+}
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+.timeline-item:nth-child(even){
+    left:50%;
+    text-align:left;
+}
+.timeline-dot{
+    position:absolute;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#88B04B;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    box-shadow:0 0 0 6px #E6F0D4;
+}
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-15px;
+}
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-15px;
+}
+.timeline-content{
+    background:#fff;
+    padding:25px 30px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    display:inline-block;
+    max-width:400px;
+    transition:.4s;
+}
+.timeline-content:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 35px rgba(136,176,75,.35);
+}
+.timeline-content h3{
+    font-family:'Playfair Display',serif;
+    color:#4A3425;
+    margin-bottom:10px;
+}
+.timeline-content p{
+    color:#5C4A3F;
+    line-height:1.7;
+}
+
+/* ===== Back To Top ===== */
+#backToTop{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#88B04B;
+    color:#fff;
+    border:none;
+    padding:12px 14px;
+    border-radius:50%;
+    display:none;
+    cursor:pointer;
+}
+
+/* ===== Footer ===== */
+footer{
+    background:linear-gradient(135deg,#4A3425,#6B4F38);
+    color:#fff;
+    padding:30px;
+    text-align:center;
+}
+footer p{
+    text-align:center;
+    margin:5px 0;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>My Digital Journey</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="profile.html">About Me</a>
+<a href="skills.html" class="active">Skills</a>
+<a href="education.html">Education</a>
+<a href="internship.html">Internship</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<section class="header">
+<h1 data-aos="fade-down">My Skills</h1>
+<p data-aos="fade-up">
+This section highlights the skills I have developed throughout my diploma journey,
+combining academic knowledge, hands-on experience, and continuous self-improvement.
+</p>
+</section>
+
+<div class="skills-wrapper" data-aos="fade-up">
+<div class="skills-intro">
+<p>
+Rather than focusing on numerical levels, this section explains how each skill
+contributes to my growth as a future information management professional.
+</p>
+</div>
+
+<div class="skills-container">
+
+<!-- Technical Skills Card -->
+<div class="skill-card" data-aos="fade-up">
+<img src="images/S5.jpg" alt="Technical Skills" class="skill-img">
+<h3><i class="fa-solid fa-laptop-code"></i>Technical Skills</h3>
+<p>
+These skills relate to digital tools, systems, and technologies that I apply
+throughout my academic coursework and assignments.
+</p>
+<ul class="skill-list">
+<li>HTML & CSS
+<div class="skill-bar"><div class="skill-bar-inner" style="width:75%"></div></div>
+</li>
+<li>Microsoft Office
+<div class="skill-bar"><div class="skill-bar-inner" style="width:85%"></div></div>
+</li>
+<li>Canva & Digital Design
+<div class="skill-bar"><div class="skill-bar-inner" style="width:80%"></div></div>
+</li>
+</ul>
+</div>
+
+<!-- Soft Skills Card -->
+<div class="skill-card" data-aos="fade-up">
+<img src="images/S1.jpg" alt="Soft Skills" class="skill-img">
+<h3><i class="fa-solid fa-users"></i>Soft Skills</h3>
+<p>
+Soft skills support effective communication, teamwork, and professionalism
+in both academic and working environments.
+</p>
+<ul class="skill-list">
+<li>Communication
+<div class="skill-bar"><div class="skill-bar-inner" style="width:80%"></div></div>
+</li>
+<li>Teamwork
+<div class="skill-bar"><div class="skill-bar-inner" style="width:85%"></div></div>
+</li>
+<li>Time Management
+<div class="skill-bar"><div class="skill-bar-inner" style="width:75%"></div></div>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="development-section" data-aos="fade-up">
+<h2>Development Timeline</h2>
+<p class="dev-intro">
+My skills developed gradually throughout my diploma journey, with each academic year
+contributing new knowledge, experience, and confidence.
+</p>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"><i class="fa-solid fa-book"></i></div>
+<div class="timeline-content">
+<h3>Year 1 – Foundation</h3>
+<p>Built fundamental IT knowledge and basic communication skills.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"><i class="fa-solid fa-code"></i></div>
+<div class="timeline-content">
+<h3>Year 2 – Growth</h3>
+<p>Improved web design, database concepts, and teamwork experience.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"><i class="fa-solid fa-rocket"></i></div>
+<div class="timeline-content">
+<h3>Year 3 – Professional Readiness</h3>
+<p>Refined professional skills through projects, presentations, and collaboration.</p>
+</div>
+</div>
+</div>
+</div>
+
+<button id="backToTop" onclick="scrollToTop()">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<footer>
+<p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+<p><i>“Creativity begins when curiosity meets courage.”</i></p>
+</footer>
+
+<script>
+AOS.init({duration:1000});
+window.onscroll=function(){
+document.getElementById("backToTop").style.display=
+(document.documentElement.scrollTop>300)?"block":"none";
+}
+function scrollToTop(){
+window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>

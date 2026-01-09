@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship – Nurul Aniza</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<!-- AOS Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+    font-family:'Poppins',sans-serif;
+    background:url(images/background\ .jpg) center/cover no-repeat;
+    color:#3B2F2F;
+    scroll-behavior:smooth;
+}
+
+/* Navigation */
+nav{
+    width:100%;
+    background:linear-gradient(90deg,#4A3425,#6B4F38);
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+nav h2{
+    font-family:'Playfair Display',serif;
+    color:#F6F2E9;
+    font-size:26px;
+}
+nav a{
+    color:#F6F2E9;
+    text-decoration:none;
+    margin-left:25px;
+    position:relative;
+}
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    bottom:-4px;
+    left:0;
+    background:#88B04B;
+    transition:.3s;
+}
+nav a:hover::after,
+nav a.active::after{width:100%;}
+
+/* Header */
+.header{
+    text-align:center;
+    padding:120px 20px 80px;
+    color:#F6F2E9;
+    position:relative;
+    background:url(images/background\ header\ internship.jpg) center/cover no-repeat;
+}
+.header::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+.header h1,
+.header p{position:relative;z-index:1;}
+
+/* Timeline */
+.timeline{
+    position:relative;
+    max-width:1000px;
+    margin:70px auto;
+    padding:20px 0;
+}
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:5px;
+    background:linear-gradient(to bottom,#88B04B,#A8C686);
+    top:0;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+.timeline-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:70px;
+    position:relative;
+}
+.timeline-item.left{flex-direction:row;}
+.timeline-item.right{flex-direction:row-reverse;}
+
+.timeline-card{
+    background:#FFF9F0;
+    padding:28px;
+    border-radius:15px;
+    box-shadow:0 8px 22px rgba(0,0,0,.14);
+    width:340px;
+}
+.timeline-card h3{
+    font-family:'Playfair Display',serif;
+    margin-bottom:12px;
+}
+.timeline-card p{line-height:1.7;}
+
+.tags{margin-top:10px;}
+.tag{
+    display:inline-block;
+    background:#88B04B;
+    color:#FFF9F0;
+    padding:3px 10px;
+    margin:3px 5px 0 0;
+    font-size:14px;
+    border-radius:12px;
+}
+
+.read-more{display:none;}
+.read-more-btn{
+    background:none;
+    border:none;
+    color:#88B04B;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* Images – ORIGINAL, NO CROP */
+.timeline-image{
+    width:240px;
+}
+.timeline-image img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:15px;
+    box-shadow:0 8px 22px rgba(0,0,0,.14);
+    transition:.3s;
+}
+.timeline-image img:hover{transform:scale(1.05);}
+
+.timeline-dot{
+    position:absolute;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    width:22px;
+    height:22px;
+    background:#4A3425;
+    border:5px solid #88B04B;
+    border-radius:50%;
+}
+
+/* Modal */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:200;
+    padding-top:80px;
+    inset:0;
+    background:rgba(0,0,0,.8);
+}
+.modal-content{
+    margin:auto;
+    display:block;
+    max-width:80%;
+    border-radius:15px;
+}
+.modal-close{
+    position:absolute;
+    top:25px;
+    right:40px;
+    color:#fff;
+    font-size:40px;
+    cursor:pointer;
+}
+
+/* Back to Top */
+#backToTop{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:50px;
+    height:50px;
+    background:#88B04B;
+    color:#fff;
+    border:none;
+    border-radius:50%;
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Footer */
+footer{
+    background:linear-gradient(135deg,#4A3425,#6B4F38);
+    color:#F6F2E9;
+    padding:30px;
+    text-align:center;
+}
+
+@media(max-width:768px){
+    .timeline::after{left:20px;}
+    .timeline-item{flex-direction:column;padding-left:40px;}
+    .timeline-dot{left:20px;}
+    .timeline-card,.timeline-image{width:100%;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>My Digital Journey</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="profile.html">About Me</a>
+<a href="skills.html">Skills</a>
+<a href="education.html">Education</a>
+<a href="internship.html" class="active">Internship</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<section class="header">
+<h1 data-aos="fade-down">Internship Experience</h1>
+<p data-aos="fade-up">Discover my professional journey and key achievements during my internship at Mahkamah Shah Alam.</p>
+</section>
+
+<div class="timeline">
+
+<div class="timeline-item left" data-aos="fade-right">
+    <div class="timeline-card">
+        <h3>Internship at Mahkamah Shah Alam</h3>
+        <p>Completed my internship at <b>Mahkamah Shah Alam</b> under the Human Resource and Administration Department.
+        <span class="read-more"> I was actively involved in observing daily office routines, assisting with staff coordination, and learning practical administrative skills essential for future career development.</span></p>
+        <button class="read-more-btn">Read more</button>
+        <div class="tags">
+            <span class="tag">HR</span>
+            <span class="tag">Administration</span>
+            <span class="tag">Digital Literacy</span>
+        </div>
+    </div>
+    <div class="timeline-image">
+        <img src="images/internship.jpeg">
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+
+<div class="timeline-item right" data-aos="fade-left">
+    <div class="timeline-card">
+        <h3>Internal Website Project</h3>
+        <p>Developed a functional internal website to manage staff data using <b>HTML, PHP, and MySQL</b>.
+        <span class="read-more"> The project involved database design, UI planning, and testing to ensure smooth usage.</span></p>
+        <button class="read-more-btn">Read more</button>
+        <div class="tags">
+            <span class="tag">Web Development</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+        </div>
+    </div>
+    <div class="timeline-image">
+        <img src="images/websitespkj.png">
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+
+<div class="timeline-item left" data-aos="fade-right">
+    <div class="timeline-card">
+        <h3>Administrative Tasks</h3>
+        <p>Assisted in document handling, data entry, record updates, and small administrative coordination.
+        <span class="read-more"> These tasks enhanced my attention to detail, time management, and confidentiality skills.</span></p>
+        <button class="read-more-btn">Read more</button>
+        <div class="tags">
+            <span class="tag">Data Entry</span>
+            <span class="tag">Documentation</span>
+            <span class="tag">Time Management</span>
+        </div>
+    </div>
+    <div class="timeline-image">
+        <img src="images/internship w admin department.jpeg">
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+
+<div class="timeline-item right" data-aos="fade-left">
+    <div class="timeline-card">
+        <h3>Skills Gained</h3>
+        <p>Developed responsibility, teamwork, communication, and professional work ethics.
+        <span class="read-more"> Additionally, I strengthened my digital literacy and administrative understanding.</span></p>
+        <button class="read-more-btn">Read more</button>
+        <div class="tags">
+            <span class="tag">Teamwork</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Professionalism</span>
+        </div>
+    </div>
+    <div class="timeline-image">
+        <img src="images/me in mahkamah shah alam .jpeg">
+    </div>
+    <div class="timeline-dot"></div>
+</div>
+
+</div>
+
+<button id="backToTop" onclick="scrollToTop()">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<footer>
+<p>© 2025 Nurul Aniza Ismail Hashim | My Digital Journey</p>
+<p><i>“Creativity begins when curiosity meets courage.”</i></p>
+</footer>
+
+<script>
+AOS.init({duration:1000});
+
+document.querySelectorAll('.read-more-btn').forEach(btn=>{
+btn.onclick=()=>{
+const more=btn.previousElementSibling.querySelector('.read-more');
+if(more.style.display==="inline"){
+more.style.display="none";
+btn.textContent="Read more";
+}else{
+more.style.display="inline";
+btn.textContent="Read less";
+}
+};
+});
+
+window.onscroll=()=>{
+document.getElementById("backToTop").style.display=
+(document.documentElement.scrollTop>300)?"flex":"none";
+}
+function scrollToTop(){
+window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
